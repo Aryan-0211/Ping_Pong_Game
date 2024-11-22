@@ -24,12 +24,27 @@ screen.onkey(r_paddle.go_down, "Down")
 screen.onkey(l_paddle.go_up, "w")
 screen.onkey(l_paddle.go_down, "s")
 
+# Function to check for a winner
+def check_winner():
+    if scoreboard.l_score == 5:
+        scoreboard.game_over("Left Player Wins!")
+        return True
+    elif scoreboard.r_score == 5:
+        scoreboard.game_over("Right Player Wins!")
+        return True
+    return False
+
 # Main game loop
 game_is_on = True
 while game_is_on:
     screen.update()  # Continuously update the screen
     time.sleep(0.02)  # Keep a very short delay for ball smoothness
     ball.move()
+
+    # Check for winner and stop the game if a player wins
+    if check_winner():
+        game_is_on = False  # This will stop the game loop
+        break  # Explicitly exit the game loop
 
     # Detect collision with wall
     if ball.ycor() > 280 or ball.ycor() < -280:

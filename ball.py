@@ -1,10 +1,11 @@
 from turtle import Turtle
+import random
 
 class Ball(Turtle):
     
     def __init__(self):
         super().__init__()
-        self.color("white")
+        self.color(random.choice(["red", "blue", "green", "yellow"]))  # Random color for ball
         self.shape("circle")
         self.penup()
         self.x_move = 4  # Reduced from 10 to 4 for slower movement
@@ -18,6 +19,7 @@ class Ball(Turtle):
         
     def bounce_y(self):
         self.y_move *= -1  # After hitting the wall, reverse the y direction
+        self.color(random.choice(["red", "blue", "green", "yellow"]))  # Change color on bounce
 
         
     def bounce_x(self):
