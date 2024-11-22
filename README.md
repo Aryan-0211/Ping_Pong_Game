@@ -44,7 +44,6 @@ Game Features
     Scoreboard: The score of both players is displayed at the top of the screen.
     Game Over: When a player scores 5 points, a winner is declared, and the game ends.
 
-Game Screenshots
 
 License
 
